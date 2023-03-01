@@ -34,6 +34,7 @@
     </div>
     <div class="completedCount">Cоотношение:
       {{ ratioOfСompletedTasks.toFixed() + '%'}}
+      <div class="scale" :style="{backgroundColor: 'green', height: '50px', width: ratioOfСompletedTasks.toFixed()+ '%'}"></div>
     </div>
   </div>
 </template>
@@ -128,8 +129,13 @@
     .completedCount {
       font-size: 35px;
       color: white;
+      .scale {
+        transition: 0.5s all;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
     }
-
+    
     .form {
       width: 100%;
       background-color: LightCyan;
