@@ -54,12 +54,21 @@
     </div>
     <div class="posts">
       <div v-for="post in posts" :key="post.id" :style="{ 'background-color': post.backgroundColor}" class="post">
-        <div :style="{ color: post.color, fontSize: Number(post.fontSize) + 'px', fontStyle: post.fontType}">
-          {{ post.title }}
+        <div v-if="post.isEditing" class="post__editing">
+          <input type="text" v-model="editTitle">
+          <input type="text" v-model="editDescription">
         </div>
-        <div class="post__desc">
-          {{ post.description }}
+        <div v-else class="post__info">
+          <div :style="{ color: post.color, fontSize: Number(post.fontSize) + 'px', fontWeight: post.fontType, fontStyle: post.fontType}">
+            {{ post.title }}
+          </div>
+          <div class="post__desc">
+            {{ post.description }}
+          </div>
         </div>
+        <button class="post__edit" @click="editPost(post)">
+          EDIT
+        </button>
       </div>
     </div>
   </div>
@@ -76,7 +85,9 @@
         backgroundColor: 'Lavender',
         fontSize: 9,
         fontType: 'normal',
-        posts: []
+        posts: [],
+        editTitle: '',
+        editDescription: '',
       }
     },
     methods: {
@@ -89,11 +100,27 @@
             color: this.color,
             backgroundColor: this.backgroundColor,
             fontSize: this.fontSize,
-            fontType: this.fontType
+            fontType: this.fontType,
+            isEditing: false
           })
           this.title = "";
           this.description = "";
         }
+      },
+      editPost(post) {
+        post.isEditing = !post.isEditing;
+        this.posts = this.posts.map(p => {
+          if (post.id === p.id) {
+            return {
+              ...p,
+              title: this.editTitle,
+              description: this.editDescription
+            }
+          }
+          return p;
+        });
+        this.editTitle = "";
+        this.editDescription = "";
       }
     },
   };
@@ -112,16 +139,37 @@
       width: 100%;
       gap:30px;
       margin-bottom: 25px;
+      flex-wrap: wrap;
       .post {
         display: flex;
         flex-direction: column;
         gap: 20px;
         border-radius: 30px;
-        width: 33.333%;
+        width: 31%;
         color: white;
         padding: 25px 20px;
-        .post__desc {
-            word-break: break-all;
+        .post__editing {
+          display: flex;
+          flex-direction: column;
+          gap:20px;
+          input {
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 25px;
+          }
+        }
+        .post__info {
+          display: flex;
+          flex-direction: column;
+          gap:20px;
+          .post__desc {
+              word-break: break-all;
+          }
+        }
+        .post__edit {
+          align-self:flex-end;
+          background-color:inherit;
+          color:white;
         }
       }
     }
