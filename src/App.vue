@@ -2,6 +2,7 @@
    <nav>
     <router-link to="/todo">Todo</router-link> |
     <router-link to="/posts">Posts</router-link> |
+    <router-link to="/floor">Floor Repair</router-link> |
   </nav>
   <router-view />
 </template>
