@@ -3,6 +3,7 @@
     <router-link to="/todo">Todo</router-link> |
     <router-link to="/posts">Posts</router-link> |
     <router-link to="/floor">Floor Repair</router-link> |
+    <router-link to="/blogs">Blogs</router-link> |
   </nav>
   <router-view />
 </template>

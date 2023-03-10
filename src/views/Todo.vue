@@ -9,9 +9,6 @@
       :ratioСompletedTasks="ratioOfСompletedTasksChanger" />
   </div>
 </template>
-<!-- 
-@complete="completeTodo"
-@edit="editTodo" -->
 
 <script>
 import Todos from "@/components/Todos.vue";
