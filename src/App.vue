@@ -4,6 +4,7 @@
     <router-link to="/posts">Posts</router-link> |
     <router-link to="/floor">Floor Repair</router-link> |
     <router-link to="/blogs">Blogs</router-link> |
+    <router-link to="/game">Game</router-link> |
   </nav>
   <router-view />
 </template>

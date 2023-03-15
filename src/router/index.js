@@ -3,6 +3,7 @@ import Todo from '@/views/Todo'
 import Posts from '@/views/Posts'
 import FloorRepair from '@/views/FloorRepair'
 import Blogs from '@/views/Blogs'
+import Game from '@/views/Game'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/blogs',
     name: 'blogs',
     component: Blogs
+  },
+  {
+    path: '/game',
+    name: 'game',
+    component: Game
   }
 ]
 
