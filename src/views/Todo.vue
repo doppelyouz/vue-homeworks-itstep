@@ -1,6 +1,6 @@
 <template>
   <div class="space">
-    <TodoCreator @add="addTodo" />
+    <TodoCreator @add="addTodo" v-addClass="'examplebg'"/>
     <Todos :todos="todos" 
       @delete="deleteTodo" 
       @complete="completeTodo"
@@ -86,6 +86,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.examplebg {
+  color:white;
+  background-color: #270606;
+}
 .space {
   max-width: 600px;
   width: 100%;

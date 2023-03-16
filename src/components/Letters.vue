@@ -1,22 +1,23 @@
 <template>
-    <div v-if="lengthOfIndexes === lengthOfWord && attempts < 10">
-        <div class="winner__loser">You won!</div>
-        <button @click="this.$router.go(0);" class="reset">Reset</button>
-    </div>
-    <div v-if="attempts >= 10">
-        <div class="winner__loser">You lose!</div>
-        <button @click="this.$router.go(0);" class="reset">Reset</button>
-    </div>
-    <ul class="letters" v-else>
-        <li v-for="letter, i in letters" :key="i">
-            <letter :letter="letter" :indexes="indexes" :index="i"/>
-        </li>
-    </ul>
-    
-    <h2 v-if="mistakes.length > 0">Your mistakes: </h2>
-    <div class="mistakes">
-        <div v-for="mistake in mistakesUniq" :key="mistake">{{ mistake }}</div>
-    </div>
+    <div class="game">
+        <div v-if="lengthOfIndexes === lengthOfWord && attempts < 10">
+            <div class="winner__loser">You won!</div>
+            <button @click="this.$router.go(0);" class="reset">Reset</button>
+        </div>
+        <div v-else-if="attempts >= 10">
+            <div class="winner__loser">You lose!</div>
+            <button @click="this.$router.go(0);" class="reset">Reset</button>
+        </div>
+        <ul class="letters" v-else>
+            <li v-for="letter, i in letters" :key="i">
+                <letter :letter="letter" :indexes="indexes" :index="i" v-randomColor/>
+            </li>
+        </ul>
+        <h2 v-if="mistakes.length > 0">Your mistakes: </h2>
+        <div class="mistakes">
+            <div v-for="mistake in mistakesUniq" :key="mistake">{{ mistake }}</div>
+        </div>
+    </div>  
 </template>
 
 <script>
@@ -65,6 +66,11 @@
 </script>
 
 <style lang="scss" scoped>
+    .game {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
     .letters {
         display: flex;
         gap: 10px;

@@ -1,26 +1,32 @@
 <template>
-  <ul>
-    <li v-for="todo in todos" :key="todo.id" :class="{ completed: todo.completed }" class="li">
-      <TodoItem :todo="todo" @delete-todos="$emit('delete', todo.id)" @complete-todos="$emit('complete', todo.id)" @edit-todos="editTodo" />
-    </li>
-  </ul>
-  <div class="completedCount">
-    Выполнено:
-    {{ completedCount }}
-  </div>
-  <div class="completedCount" style="padding-bottom: 25px">
-    Cоотношение:
-    {{ ratioСompletedTasks + "%" }}
-    <div class="scale" :style="{
-        backgroundColor: 'green',
-        height: '50px',
-        width: ratioСompletedTasks + '%',
-      }"></div>
+  <div>
+    <ul>
+      <li v-for="todo in todos" :key="todo.id" :class="{ completed: todo.completed }" class="li" 
+        v-changeArray.reverse="[1,2,3,4,5,6,7,8]"
+        v-changeArray.random="[1,2,3,4,5,6,7,8]"
+      >
+        <TodoItem :todo="todo" @delete-todos="$emit('delete', todo.id)" @complete-todos="$emit('complete', todo.id)" @edit-todos="editTodo" />
+      </li>
+    </ul>
+    <div class="completedCount">
+      Выполнено:
+      {{ completedCount }}
+    </div>
+    <div class="completedCount" style="padding-bottom: 25px">
+      Cоотношение:
+      {{ ratioСompletedTasks + "%" }}
+      <div class="scale" :style="{
+          backgroundColor: 'green',
+          height: '50px',
+          width: ratioСompletedTasks + '%',
+        }" />
+    </div>
   </div>
 </template>
 
 <script>
   import TodoItem from "./TodoItem.vue";
+
   export default {
     name: "AppTodo",
     emits: ["delete", "complete", "edit"],
@@ -55,6 +61,9 @@
     background-color: DarkGreen;
   }
 
+  .examplebg {
+    background-color: #270606;
+  }
   .li {
     padding: 25px;
     background-color: MintCream;
