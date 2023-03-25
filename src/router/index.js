@@ -10,6 +10,11 @@ import Payment from '@/views/Payment'
 
 const routes = [
   {
+    path: '/',
+    name: 'webShop',
+    component: WebShop
+  },
+  {
     path: '/todo',
     name: 'todo',
     component: Todo
@@ -33,11 +38,6 @@ const routes = [
     path: '/game',
     name: 'game',
     component: Game
-  },
-  {
-    path: '/web-shop',
-    name: 'webShop',
-    component: WebShop
   },
   {
     path: '/cart',
