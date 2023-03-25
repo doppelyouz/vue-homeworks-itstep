@@ -4,6 +4,9 @@ import Posts from '@/views/Posts'
 import FloorRepair from '@/views/FloorRepair'
 import Blogs from '@/views/Blogs'
 import Game from '@/views/Game'
+import WebShop from '@/views/WebShop'
+import Cart from '@/views/Cart'
+import Payment from '@/views/Payment'
 
 const routes = [
   {
@@ -30,6 +33,21 @@ const routes = [
     path: '/game',
     name: 'game',
     component: Game
+  },
+  {
+    path: '/web-shop',
+    name: 'webShop',
+    component: WebShop
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart
+  },
+  {
+    path: '/payment',
+    name: 'payment',
+    component: Payment
   }
 ]
 

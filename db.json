@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 3,
+      "name": "Romana",
+      "image": "https://www.alma.scuolacucina.it/wp-content/uploads/2021/11/shutterstock_pizza-romana-624x416.jpg",
+      "price": 35
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
